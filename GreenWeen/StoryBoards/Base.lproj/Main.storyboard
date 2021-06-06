@@ -25,30 +25,30 @@
             </objects>
             <point key="canvasLocation" x="70" y="102"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--ARList-->
         <scene sceneID="5K2-I9-RIa">
             <objects>
-                <viewControllerPlaceholder id="D9B-nD-aZx" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ARList" id="D9B-nD-aZx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="BhP-If-cJ2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJY-wW-dGU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-382" y="487"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--CurrentList-->
         <scene sceneID="4tM-iD-5SA">
             <objects>
-                <viewControllerPlaceholder id="P0y-Dk-IGW" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="CurrentList" id="P0y-Dk-IGW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="td3-IG-rRs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Il-Mx-vry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="70" y="538"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--ShopList-->
         <scene sceneID="qxS-Rg-PKk">
             <objects>
-                <viewControllerPlaceholder id="Bou-JO-Q08" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ShopList" id="Bou-JO-Q08" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="rkK-QF-STh"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJY-rW-b5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

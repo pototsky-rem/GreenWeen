@@ -10,13 +10,13 @@
         <!--Root View Controller-->
         <scene sceneID="VJB-J0-mCR">
             <objects>
-                <tableViewController id="l24-tK-fIX" sceneMemberID="viewController">
+                <tableViewController id="l24-tK-fIX" customClass="ARTableViewController" customModule="GreenWeen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="62e-bR-XDK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WDS-27-5Yb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="WDS-27-5Yb" customClass="ARTableViewCell" customModule="GreenWeen" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WDS-27-5Yb" id="jda-eV-rrp">
@@ -36,10 +36,12 @@
             </objects>
             <point key="canvasLocation" x="410" y="120"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="9qh-TN-bjN">
             <objects>
                 <navigationController id="hLO-X4-9x4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="arkit" catalog="system" id="2iI-m1-WbO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a7s-TD-bOX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -54,6 +56,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arkit" catalog="system" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
