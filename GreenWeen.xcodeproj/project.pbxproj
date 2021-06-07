@@ -21,6 +21,7 @@
 		F9E01C99266B7DA30037B54D /* ARTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E01C98266B7DA30037B54D /* ARTableViewController.swift */; };
 		F9E01C9D266B7E160037B54D /* ARTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E01C9B266B7E160037B54D /* ARTableViewCell.swift */; };
 		F9E01C9E266B7E160037B54D /* ARTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E01C9C266B7E160037B54D /* ARTableViewCell.xib */; };
+		F9E01CA1266E35AD0037B54D /* ContentForARList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E01CA0266E35AD0037B54D /* ContentForARList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F9E01C98266B7DA30037B54D /* ARTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTableViewController.swift; sourceTree = "<group>"; };
 		F9E01C9B266B7E160037B54D /* ARTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTableViewCell.swift; sourceTree = "<group>"; };
 		F9E01C9C266B7E160037B54D /* ARTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARTableViewCell.xib; sourceTree = "<group>"; };
+		F9E01CA0266E35AD0037B54D /* ContentForARList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForARList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		F9E01C5B266A07FB0037B54D /* GreenWeen */ = {
 			isa = PBXGroup;
 			children = (
+				F9E01C9F266E35960037B54D /* ContentStruct */,
 				F9E01C9A266B7DE90037B54D /* PrototypeCells */,
 				F9E01C93266B7D200037B54D /* ViewControllers */,
 				F9E01C8C266B79830037B54D /* StoryBoards */,
@@ -168,6 +171,14 @@
 				F9E01C9C266B7E160037B54D /* ARTableViewCell.xib */,
 			);
 			path = PrototypeCells;
+			sourceTree = "<group>";
+		};
+		F9E01C9F266E35960037B54D /* ContentStruct */ = {
+			isa = PBXGroup;
+			children = (
+				F9E01CA0266E35AD0037B54D /* ContentForARList.swift */,
+			);
+			path = ContentStruct;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 				F9E01C61266A07FB0037B54D /* ViewController.swift in Sources */,
 				F9E01C5D266A07FB0037B54D /* AppDelegate.swift in Sources */,
 				F9E01C9D266B7E160037B54D /* ARTableViewCell.swift in Sources */,
+				F9E01CA1266E35AD0037B54D /* ContentForARList.swift in Sources */,
 				F9E01C5F266A07FB0037B54D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
