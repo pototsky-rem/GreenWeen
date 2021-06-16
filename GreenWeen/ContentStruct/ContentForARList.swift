@@ -10,14 +10,12 @@ import Foundation
 struct ArList {
     let name: String
     let shortDiscription: String
-    var title: String {
-        "\(name) - \(shortDiscription)"
-    }
+    
 }
 extension ArList {
     static func getArList() -> [ArList] {
         [
-        ArList(name: "Thuja", shortDiscription: "There is some description for thuja"),
+            ArList(name: "Thuja", shortDiscription: "There is some description for thuja"),
             ArList(name: "Fir", shortDiscription: "Discription for Fir trees"),
             ArList(name: "Maple", shortDiscription: "Here is description for maples"),
             ArList(name: "Wisteria", shortDiscription: "Some description for wisteria"),
@@ -27,6 +25,7 @@ extension ArList {
             ArList(name: "Cedar", shortDiscription: "Some cedar here"),
             ArList(name: "Linden", shortDiscription: "There are some Lendenes"),
             ArList(name: "Birch", shortDiscription: "The las is birch")
-        ]
+        ].sorted { $1.name > $0.name }
     }
 }
+

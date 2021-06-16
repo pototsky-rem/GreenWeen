@@ -1,18 +1,17 @@
 //
-//  ARTableViewController.swift
+//  ARDetailController.swift
 //  GreenWeen
 //
-//  Created by Rem on 5.06.21.
+//  Created by Rem on 7.06.21.
 //
 
 import UIKit
 
-class ARTableViewController: UITableViewController {
-    
-    let arList = ArList.getArList()
+class ARDetailController: UITableViewController {
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 80
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -22,39 +21,22 @@ class ARTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        arList.count
+        return 3
     }
 
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let list = arList[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = list.name
-        content.secondaryText = list.shortDiscription
-        content.image = UIImage(named: list.name)
-        content.imageProperties.cornerRadius = tableView.rowHeight / 2
-    
-        cell.accessoryType = .disclosureIndicator
-        cell.contentConfiguration = content
-     
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
-
-
+  
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
+//
+//        // Configure the cell...
+//
+//        return cell
+//    }
+   
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
