@@ -8,78 +8,107 @@
 import UIKit
 
 class ARDetailController: UITableViewController {
- 
+    
+    private var models = [CellModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupStrechyHeaderView()
+        setUpModels()
+        setupTableViewRegisters()
+    }
     
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    private func setUpModels() {
+        models.append(.collectionView(model: [
+                                        CollectionTableCellModel(title: "Fir", imageName: "Fir"),
+                                        CollectionTableCellModel(title: "Acacia", imageName: "Acacia"),
+                                        CollectionTableCellModel(title: "Birch", imageName: "Birch"),
+                                        CollectionTableCellModel(title: "Cedar", imageName: "Cedar"),
+                                        CollectionTableCellModel(title: "Forsythia", imageName: "Forsythia"),
+                                        CollectionTableCellModel(title: "Linden", imageName: "Linden"),
+                                        CollectionTableCellModel(title: "Maple", imageName: "Maple"),
+                                        CollectionTableCellModel(title: "Wisteria", imageName: "Wisteria")],
+                                      rows: 2))
+        models.append(.list(model: [
+            ListCellModel(title: "Thuja are evergreen trees growing from 10 to 200 feet (3 to 61 metres) tall, with stringy-textured reddish-brown bark. The shoots are flat, with side shoots only in a single plane. The leaves are scale-like 1–10 mm long, except young seedlings in their first year, which have needle-like leaves. The scale leaves are arranged in alternating decussate pairs in four rows along the twigs")
+        ]))
     }
-
+    
+    func setupTableViewRegisters() {
+        tableView.register(UITableViewCell.self,
+                           forCellReuseIdentifier: "detailCell")
+        tableView.register(CollectionTableViewCell.self,
+                           forCellReuseIdentifier: CollectionTableViewCell.identifire)
+        tableView.separatorStyle = .none
+    }
+    
+    func setupStrechyHeaderView() {
+        let header = StrechyTableHeaderView(frame: CGRect(x: 0,
+                                                          y: 0,
+                                                          width: view.frame.size.width,
+                                                          height: view.frame.size.width))
+        header.imageView.image = UIImage(named: "Fir")
+        tableView.tableHeaderView = header
+    }
+    
+    
     // MARK: - Table view data source
-
-
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("Did selec normal list item")
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let header = tableView.tableHeaderView as? StrechyTableHeaderView else {
+            return
+        }
+        header.scrollViewDidScroll(scrollView: tableView)
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        switch models[section] {
+        case .list(let models):
+            return models.count
+        case .collectionView(_, _):
+            return 1
+        }
     }
-
-  
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
-//
-//        // Configure the cell...
-//
-//        return cell
-//    }
-   
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch models[indexPath.section] {
+        case .list(let model):
+            let model = model[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell",
+                                                     for: indexPath)
+            var content = cell.defaultContentConfiguration()
+            content.text = model.title
+            cell.contentConfiguration = content
+            return cell
+        case .collectionView(let models, _):
+            let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifire,
+                                                     for: indexPath) as! CollectionTableViewCell
+            cell.configure(with: models)
+            cell.delegate = self
+            return cell
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch models[indexPath.section] {
+        case .list(_):
+            return UITableView.automaticDimension
+        case .collectionView(_, let rows):
+            return 178 * CGFloat(rows)
+        }
     }
-    */
+}
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+extension ARDetailController: CollectionTableViewCellDelegate {
+    func didSelectItem(with model: CollectionTableCellModel) {
+        print("Selected \(model.title)")
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
