@@ -16,6 +16,7 @@ class ARDetailController: UITableViewController {
         setupStrechyHeaderView()
         setUpModels()
         setupTableViewRegisters()
+        print("Hello Moto")
     }
     
     private func setUpModels() {
