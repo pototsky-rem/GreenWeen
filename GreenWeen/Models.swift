@@ -17,6 +17,5 @@ struct ListCellModel {
 }
 
 struct CollectionTableCellModel {
-    let title: String
     let imageName: String
 }

@@ -24,7 +24,9 @@ class CollectionTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 170, height: 170)
+        layout.itemSize = CGSize(width: 140, height: 140)
+//        layout.minimumLineSpacing = 0
+//        layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 3,
                                            left: 3,
                                            bottom: 3,
@@ -61,6 +63,7 @@ extension CollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+ 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count

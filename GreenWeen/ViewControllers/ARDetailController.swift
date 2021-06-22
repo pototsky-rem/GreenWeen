@@ -16,19 +16,18 @@ class ARDetailController: UITableViewController {
         setupStrechyHeaderView()
         setUpModels()
         setupTableViewRegisters()
-        print("Hello Moto")
     }
     
     private func setUpModels() {
         models.append(.collectionView(model: [
-                                        CollectionTableCellModel(title: "Fir", imageName: "Fir"),
-                                        CollectionTableCellModel(title: "Acacia", imageName: "Acacia"),
-                                        CollectionTableCellModel(title: "Birch", imageName: "Birch"),
-                                        CollectionTableCellModel(title: "Cedar", imageName: "Cedar"),
-                                        CollectionTableCellModel(title: "Forsythia", imageName: "Forsythia"),
-                                        CollectionTableCellModel(title: "Linden", imageName: "Linden"),
-                                        CollectionTableCellModel(title: "Maple", imageName: "Maple"),
-                                        CollectionTableCellModel(title: "Wisteria", imageName: "Wisteria")],
+                                        CollectionTableCellModel(imageName: "Fir"),
+                                        CollectionTableCellModel(imageName: "Acacia"),
+                                        CollectionTableCellModel(imageName: "Birch"),
+                                        CollectionTableCellModel(imageName: "Cedar"),
+                                        CollectionTableCellModel(imageName: "Forsythia"),
+                                        CollectionTableCellModel(imageName: "Linden"),
+                                        CollectionTableCellModel(imageName: "Maple"),
+                                        CollectionTableCellModel(imageName: "Wisteria")],
                                       rows: 2))
         models.append(.list(model: [
             ListCellModel(title: "Thuja are evergreen trees growing from 10 to 200 feet (3 to 61 metres) tall, with stringy-textured reddish-brown bark. The shoots are flat, with side shoots only in a single plane. The leaves are scale-like 1–10 mm long, except young seedlings in their first year, which have needle-like leaves. The scale leaves are arranged in alternating decussate pairs in four rows along the twigs")
@@ -40,6 +39,8 @@ class ARDetailController: UITableViewController {
                            forCellReuseIdentifier: "detailCell")
         tableView.register(CollectionTableViewCell.self,
                            forCellReuseIdentifier: CollectionTableViewCell.identifire)
+        tableView.register(DetailHeaderView.self,
+                           forHeaderFooterViewReuseIdentifier: DetailHeaderView.identifire)
         tableView.separatorStyle = .none
     }
     
@@ -78,8 +79,24 @@ class ARDetailController: UITableViewController {
             return 1
         }
     }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: DetailHeaderView.identifire) as! DetailHeaderView
+        if section == 0 {
+            view.title.text = "Examples"
+        } else {
+            view.title.text = "Description"
+        }
+         return view
+        
+    }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        40
+    }
+        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     
         switch models[indexPath.section] {
         case .list(let model):
             let model = model[indexPath.row]
@@ -103,13 +120,13 @@ class ARDetailController: UITableViewController {
         case .list(_):
             return UITableView.automaticDimension
         case .collectionView(_, let rows):
-            return 178 * CGFloat(rows)
+            return 150 * CGFloat(rows)
         }
     }
 }
 
 extension ARDetailController: CollectionTableViewCellDelegate {
     func didSelectItem(with model: CollectionTableCellModel) {
-        print("Selected \(model.title)")
+        print("Selected image \(model.imageName.description)")
     }
 }
