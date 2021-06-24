@@ -28,9 +28,9 @@ class CollectionTableViewCell: UITableViewCell {
 //        layout.minimumLineSpacing = 0
 //        layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 3,
-                                           left: 3,
+                                           left: 6,
                                            bottom: 3,
-                                           right: 3)
+                                           right: 6)
         self.collectionView = UICollectionView(frame: .zero,
                                                collectionViewLayout: layout)
         super.init(style: style, reuseIdentifier: reuseIdentifier)

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 enum CellModel {
     case collectionView(model: [CollectionTableCellModel], rows: Int)
     case list(model: [ListCellModel])

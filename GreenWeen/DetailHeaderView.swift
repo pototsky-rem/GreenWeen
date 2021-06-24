@@ -25,6 +25,7 @@ class DetailHeaderView: UITableViewHeaderFooterView {
     func configureContents() {
         title.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         title.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = .systemBackground
         contentView.addSubview(title)
         
         NSLayoutConstraint.activate([

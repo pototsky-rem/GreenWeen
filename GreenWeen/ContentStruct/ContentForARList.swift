@@ -10,9 +10,10 @@ import Foundation
 struct ArList {
     let name: String
     let shortDiscription: String
-    
 }
+
 extension ArList {
+    
     static func getArList() -> [ArList] {
         [
             ArList(name: "Thuja", shortDiscription: "There is some description for thuja"),

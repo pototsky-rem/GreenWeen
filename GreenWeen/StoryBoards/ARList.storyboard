@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,9 +21,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="W6P-h5-BJv" kind="show" id="eGI-6l-F5L"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -37,35 +33,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMS-yt-7j0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="410" y="120"/>
-        </scene>
-        <!--Detail Controller-->
-        <scene sceneID="w7F-bG-Nko">
-            <objects>
-                <tableViewController id="W6P-h5-BJv" customClass="ARDetailController" customModule="GreenWeen" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" id="e0t-RJ-IkK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="8Pv-Ep-Lf3">
-                                <rect key="frame" x="0.0" y="49.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Pv-Ep-Lf3" id="IgU-ay-MuU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="W6P-h5-BJv" id="nth-fh-0Lj"/>
-                            <outlet property="delegate" destination="W6P-h5-BJv" id="mmD-mg-XWI"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="3sg-oR-jTw"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A61-nj-aeA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1442" y="121"/>
         </scene>
         <!--AR-->
         <scene sceneID="9qh-TN-bjN">
@@ -88,8 +55,5 @@
     </scenes>
     <resources>
         <image name="arkit" catalog="system" width="128" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
