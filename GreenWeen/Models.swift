@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 enum CellModel {
     case collectionView(model: [CollectionTableCellModel], rows: Int)
     case list(model: [ListCellModel])
@@ -17,6 +18,5 @@ struct ListCellModel {
 }
 
 struct CollectionTableCellModel {
-    let title: String
     let imageName: String
 }

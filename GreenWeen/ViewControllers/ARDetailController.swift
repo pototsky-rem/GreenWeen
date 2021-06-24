@@ -10,28 +10,30 @@ import UIKit
 class ARDetailController: UITableViewController {
     
     private var models = [CellModel]()
+    private var navigationTitle: String
+    
+    private var imageForHeader = UIImage()
+    
+    init(models: [CellModel], imageForHeader: UIImage, navigationTitle: String) {
+        self.models = models
+        self.imageForHeader = imageForHeader
+        self.navigationTitle = navigationTitle
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = navigationTitle
+        self.tableView = UITableView(frame: self.tableView.frame,
+                                     style: .grouped)
+        self.tableView.backgroundColor = .systemBackground
         setupStrechyHeaderView()
-        setUpModels()
+
         setupTableViewRegisters()
-    }
-    
-    private func setUpModels() {
-        models.append(.collectionView(model: [
-                                        CollectionTableCellModel(title: "Fir", imageName: "Fir"),
-                                        CollectionTableCellModel(title: "Acacia", imageName: "Acacia"),
-                                        CollectionTableCellModel(title: "Birch", imageName: "Birch"),
-                                        CollectionTableCellModel(title: "Cedar", imageName: "Cedar"),
-                                        CollectionTableCellModel(title: "Forsythia", imageName: "Forsythia"),
-                                        CollectionTableCellModel(title: "Linden", imageName: "Linden"),
-                                        CollectionTableCellModel(title: "Maple", imageName: "Maple"),
-                                        CollectionTableCellModel(title: "Wisteria", imageName: "Wisteria")],
-                                      rows: 2))
-        models.append(.list(model: [
-            ListCellModel(title: "Thuja are evergreen trees growing from 10 to 200 feet (3 to 61 metres) tall, with stringy-textured reddish-brown bark. The shoots are flat, with side shoots only in a single plane. The leaves are scale-like 1–10 mm long, except young seedlings in their first year, which have needle-like leaves. The scale leaves are arranged in alternating decussate pairs in four rows along the twigs")
-        ]))
     }
     
     func setupTableViewRegisters() {
@@ -39,6 +41,8 @@ class ARDetailController: UITableViewController {
                            forCellReuseIdentifier: "detailCell")
         tableView.register(CollectionTableViewCell.self,
                            forCellReuseIdentifier: CollectionTableViewCell.identifire)
+        tableView.register(DetailHeaderView.self,
+                           forHeaderFooterViewReuseIdentifier: DetailHeaderView.identifire)
         tableView.separatorStyle = .none
     }
     
@@ -46,9 +50,10 @@ class ARDetailController: UITableViewController {
         let header = StrechyTableHeaderView(frame: CGRect(x: 0,
                                                           y: 0,
                                                           width: view.frame.size.width,
-                                                          height: view.frame.size.width))
-        header.imageView.image = UIImage(named: "Fir")
+                                                          height: 250))
+        header.imageView.image = imageForHeader
         tableView.tableHeaderView = header
+        
     }
     
     
@@ -78,7 +83,23 @@ class ARDetailController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: DetailHeaderView.identifire) as! DetailHeaderView
+        if section == 0 {
+            view.title.text = "Examples"
+        } else {
+            view.title.text = "Description"
+        }
+        return view
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       return 40
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch models[indexPath.section] {
         case .list(let model):
             let model = model[indexPath.row]
@@ -102,13 +123,13 @@ class ARDetailController: UITableViewController {
         case .list(_):
             return UITableView.automaticDimension
         case .collectionView(_, let rows):
-            return 178 * CGFloat(rows)
+            return 150 * CGFloat(rows)
         }
     }
 }
 
 extension ARDetailController: CollectionTableViewCellDelegate {
     func didSelectItem(with model: CollectionTableCellModel) {
-        print("Selected \(model.title)")
+        print("Selected image \(model.imageName.description)")
     }
 }
