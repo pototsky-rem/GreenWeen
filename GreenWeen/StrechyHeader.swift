@@ -22,7 +22,7 @@ final class StrechyTableHeaderView: UIView {
     private var imageViewBottom = NSLayoutConstraint()
     private var containerView = UIView()
     private var containerViewHeight = NSLayoutConstraint()
-    
+    private var blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     //MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,8 +35,9 @@ final class StrechyTableHeaderView: UIView {
     }
     
     private func createView() {
-      addSubview(containerView)
+        addSubview(containerView)
         containerView.addSubview(imageView)
+        
     }
     
     func setViewConstraints() {

@@ -32,7 +32,6 @@ class ARDetailController: UITableViewController {
                                      style: .grouped)
         self.tableView.backgroundColor = .systemBackground
         setupStrechyHeaderView()
-
         setupTableViewRegisters()
     }
     

@@ -25,8 +25,6 @@ class CollectionTableViewCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 140, height: 140)
-//        layout.minimumLineSpacing = 0
-//        layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 3,
                                            left: 6,
                                            bottom: 3,
