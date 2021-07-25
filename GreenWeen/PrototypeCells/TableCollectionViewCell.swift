@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 class TableCollectionViewCell: UICollectionViewCell {
     
@@ -35,5 +36,6 @@ class TableCollectionViewCell: UICollectionViewCell {
     
     public func configure(with model: CollectionTableCellModel) {
         myImageView.image = UIImage(named: model.imageName)
+        myImageView.hero.id = model.imageName
     }
 }

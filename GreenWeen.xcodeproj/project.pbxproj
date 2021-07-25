@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9B1B5C12688908F00510C8F /* PhotoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1B5C02688908F00510C8F /* PhotoDetailController.swift */; };
+		F9B1B5C62688EC1700510C8F /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = F9B1B5C52688EC1700510C8F /* Hero */; };
+		F9B1B5C72688EC1700510C8F /* Hero in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F9B1B5C52688EC1700510C8F /* Hero */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F9E01C5D266A07FB0037B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E01C5C266A07FB0037B54D /* AppDelegate.swift */; };
 		F9E01C5F266A07FB0037B54D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E01C5E266A07FB0037B54D /* SceneDelegate.swift */; };
 		F9E01C61266A07FB0037B54D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E01C60266A07FB0037B54D /* ViewController.swift */; };
@@ -47,7 +50,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F9B1B5C82688EC1800510C8F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F9B1B5C72688EC1700510C8F /* Hero in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F9B1B5C02688908F00510C8F /* PhotoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailController.swift; sourceTree = "<group>"; };
 		F9E01C59266A07FB0037B54D /* GreenWeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenWeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E01C5C266A07FB0037B54D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E01C5E266A07FB0037B54D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9B1B5C62688EC1700510C8F /* Hero in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +195,7 @@
 			children = (
 				F9E01C98266B7DA30037B54D /* ARTableViewController.swift */,
 				F9E01CA2266E93960037B54D /* ARDetailController.swift */,
+				F9B1B5C02688908F00510C8F /* PhotoDetailController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,12 +229,16 @@
 				F9E01C55266A07FB0037B54D /* Sources */,
 				F9E01C56266A07FB0037B54D /* Frameworks */,
 				F9E01C57266A07FB0037B54D /* Resources */,
+				F9B1B5C82688EC1800510C8F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GreenWeen;
+			packageProductDependencies = (
+				F9B1B5C52688EC1700510C8F /* Hero */,
+			);
 			productName = GreenWeen;
 			productReference = F9E01C59266A07FB0037B54D /* GreenWeen.app */;
 			productType = "com.apple.product-type.application";
@@ -286,6 +310,9 @@
 				Base,
 			);
 			mainGroup = F9E01C50266A07FB0037B54D;
+			packageReferences = (
+				F9B1B5C42688EC1700510C8F /* XCRemoteSwiftPackageReference "Hero" */,
+			);
 			productRefGroup = F9E01C5A266A07FB0037B54D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -342,6 +369,7 @@
 				F9E01CA3266E93960037B54D /* ARDetailController.swift in Sources */,
 				F9E01C9D266B7E160037B54D /* ARTableViewCell.swift in Sources */,
 				F9E01CF326808C8D0037B54D /* DetailHeaderView.swift in Sources */,
+				F9B1B5C12688908F00510C8F /* PhotoDetailController.swift in Sources */,
 				F9E01CA1266E35AD0037B54D /* ContentForARList.swift in Sources */,
 				F9E01CED267BAF5F0037B54D /* CollectionTableViewCell.swift in Sources */,
 				F9E01C5F266A07FB0037B54D /* SceneDelegate.swift in Sources */,
@@ -677,6 +705,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F9B1B5C42688EC1700510C8F /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9B1B5C52688EC1700510C8F /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9B1B5C42688EC1700510C8F /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F9E01C51266A07FB0037B54D /* Project object */;
 }

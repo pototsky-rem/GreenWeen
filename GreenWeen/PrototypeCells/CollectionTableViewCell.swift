@@ -78,5 +78,6 @@ extension CollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         let model = models[indexPath.row]
         collectionView.deselectItem(at: indexPath, animated: true)
         delegate?.didSelectItem(with: model)
+        
     }
 }

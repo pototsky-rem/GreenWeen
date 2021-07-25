@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import Hero
 
-class ARDetailController: UITableViewController {
+class ARDetailController: UITableViewController, UIViewControllerTransitioningDelegate {
     
     private var models = [CellModel]()
     private var navigationTitle: String
-    
     private var imageForHeader = UIImage()
     
     init(models: [CellModel], imageForHeader: UIImage, navigationTitle: String) {
@@ -46,10 +46,11 @@ class ARDetailController: UITableViewController {
     }
     
     func setupStrechyHeaderView() {
-        let header = StrechyTableHeaderView(frame: CGRect(x: 0,
-                                                          y: 0,
-                                                          width: view.frame.size.width,
-                                                          height: 250))
+        let header = StrechyTableHeaderView(frame: CGRect(
+                                                x: 0,
+                                                y: 0,
+                                                width: view.frame.size.width,
+                                                height: 250))
         header.imageView.image = imageForHeader
         tableView.tableHeaderView = header
         
@@ -129,6 +130,12 @@ class ARDetailController: UITableViewController {
 
 extension ARDetailController: CollectionTableViewCellDelegate {
     func didSelectItem(with model: CollectionTableCellModel) {
-        print("Selected image \(model.imageName.description)")
+        print("Selected image \(model.imageName)")
+        
+        let photoController = PhotoDetailController()
+//        photoController.transitioningDelegate = self
+        photoController.modalPresentationStyle = .fullScreen
+        photoController.data = model.imageName
+        present(photoController, animated: true)
     }
 }

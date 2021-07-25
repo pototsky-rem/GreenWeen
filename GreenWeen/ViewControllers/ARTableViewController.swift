@@ -137,9 +137,9 @@ class ARTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 80
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemBlue
-        tableView.rowHeight = 80
     }
 
     // MARK: - Table view data source
