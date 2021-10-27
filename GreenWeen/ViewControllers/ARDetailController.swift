@@ -40,8 +40,6 @@ class ARDetailController: UITableViewController, UIViewControllerTransitioningDe
                            forCellReuseIdentifier: "detailCell")
         tableView.register(CollectionTableViewCell.self,
                            forCellReuseIdentifier: CollectionTableViewCell.identifire)
-        tableView.register(DetailHeaderView.self,
-                           forHeaderFooterViewReuseIdentifier: DetailHeaderView.identifire)
         tableView.separatorStyle = .none
     }
     
@@ -84,14 +82,23 @@ class ARDetailController: UITableViewController, UIViewControllerTransitioningDe
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: DetailHeaderView.identifire) as! DetailHeaderView
-        if section == 0 {
-            view.title.text = "Examples"
-        } else {
-            view.title.text = "Description"
+        let headerView: UITableViewHeaderFooterView = UITableViewHeaderFooterView()
+        var content = UIListContentConfiguration.groupedHeader()
+        switch section {
+        case 0:
+            content.text = "Examples"
+            content.textProperties.font = .boldSystemFont(ofSize: 20)
+            headerView.contentConfiguration = content
+            return headerView
+        case 1:
+            content.text = "Description"
+            content.textProperties.font = .boldSystemFont(ofSize: 20)
+            headerView.contentConfiguration = content
+            return headerView
+        default:
+            return headerView
         }
-        return view
-        
+
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -127,13 +134,11 @@ class ARDetailController: UITableViewController, UIViewControllerTransitioningDe
         }
     }
 }
-
+// MARK: Pass foto from ARDetailController to PhotoDetailController
 extension ARDetailController: CollectionTableViewCellDelegate {
     func didSelectItem(with model: CollectionTableCellModel) {
         print("Selected image \(model.imageName)")
-        
         let photoController = PhotoDetailController()
-//        photoController.transitioningDelegate = self
         photoController.modalPresentationStyle = .fullScreen
         photoController.data = model.imageName
         present(photoController, animated: true)

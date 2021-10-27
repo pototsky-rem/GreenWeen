@@ -27,7 +27,7 @@ class TableCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         myImageView.frame = contentView.bounds
-        myImageView.contentMode = .scaleAspectFill
+        myImageView.contentMode = .scaleAspectFit
     }
     
     required init?(coder: NSCoder) {
